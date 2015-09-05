@@ -10,8 +10,6 @@ angular.module('wwc.weatherForcast.controllers')
 
         $scope.getWeather = function () {
             weatherService.getWeatherForLocation(id, password).success(function(result){
-            console.log(result);
-
                 $scope.title = result.content;
                 $scope.condition = true;
             });
