@@ -15,7 +15,7 @@ angular.module('com.shareForcast.directives', ['ngTextcomplete'])
                 var ta = iElement.find('textarea');
                 var textcomplete = new Textcomplete(ta, [
                     {
-                        match: /(^|\s)\w(\w*)$/,
+                        match: /(^|\s)(\w*)$/,
                         search: function(term, callback) {
                             callback($.map(mentions, function(mention) {
                                 return mention.toLowerCase().indexOf(term.toLowerCase()) === 0 ? mention : null;
@@ -23,7 +23,7 @@ angular.module('com.shareForcast.directives', ['ngTextcomplete'])
                         },
                         index: 2,
                         replace: function(mention) {
-                            return '$1' + mention + ' ';
+                            return mention + ' ';
                         }
                     }
                 ]);
