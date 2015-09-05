@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../lib/jquery/jquery-ui-1.10.3.custom.min.css">
     <link rel="stylesheet" href="../styles/styles.css"/>
-    <title>Weather Forcast</title>
+    <title>Share Forcast</title>
 </head>
 <body>
 
-<div ng-app="weatherForcast">
+<div ng-app="shareForcast">
     <div>
-        <div ng-view id="weatherforcast"></div>
+        <div ng-view id="shareforcast"></div>
     </div>
 
     <script src="../components/jquery/jquery.js"></script>
@@ -18,13 +18,12 @@
     <script src="../components/angular/angular.js"></script>
     <script src="../components/angular-cookies/angular-cookies.js"></script>
 
-    <!-- build:js consultation.min.js -->
     <script src="app.js"></script>
 
     <script src="modules/init.js"></script>
-    <script src="modules/controllers/weatherForcastController.js"></script>
-    <script src="modules/services/weatherForcastService.js"></script>
-    <!-- endbuild -->
+    <script src="modules/controllers/loginController.js"></script>
+    <script src="modules/controllers/homePageController.js"></script>
+    <script src="modules/services/loginService.js"></script>
 </div>
 </body>
 </html>
