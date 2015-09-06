@@ -23,7 +23,7 @@ angular.module('com.shareForcast.directives', ['ngTextcomplete'])
                         },
                         index: 2,
                         replace: function(mention) {
-                            return mention + ' ';
+                            return ' ' +mention + ' ';
                         }
                     }
                 ]);
