@@ -383,7 +383,8 @@ angular.module('ngTextcomplete', [])
           strategy = this.strategies[i];
           match = text.match(strategy.match);
           if (match) {
-            return [strategy, match[strategy.index]];
+            // quick fix -> made changes to take second and third index
+            return [strategy, match[strategy.index] + match[strategy.index + 1]];
           }
         }
         return [];
