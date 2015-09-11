@@ -3,15 +3,17 @@
 angular.module('com.shareForcast.controllers')
     .controller('LoginController', ['$scope', '$location', 'LoginService',
     function ($scope, $location, loginService) {
-
-        $scope.condition = null;
-        var id = $scope.userid;
-        var password = $scope.psw;
+        $scope.title = "";
 
         $scope.login = function () {
+            var id = $scope.userid;
+            var password = $scope.psw;
+
             loginService.login(id, password).success(function(result){
-                $scope.title = result.content;
-                $scope.condition = true;
+                if(result.loggedIn)
+                    $scope.title = "successfully logged in";
+                else
+                    $scope.title = "wrong username password combination";
             });
         }
     }]);
