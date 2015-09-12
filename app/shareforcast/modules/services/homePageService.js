@@ -3,11 +3,14 @@
 angular.module('com.shareForcast.services')
     .factory('HomePageService', ['$http', function ($http) {
 
-        var login = function () {
-           return ['EPS', 'Face Value', 'Market Cap', 'Maggi','Map', 'Price', '>', '<', '=', '<=', '>=', 'AND', 'OR'];
+        var keyWords = function () {
+            return $http({
+                method: 'GET',
+                url: "http://localhost:8080/keywords"
+            });
         };
 
         return {
-            login : login
+            keyWords : keyWords
         }
     }]);
