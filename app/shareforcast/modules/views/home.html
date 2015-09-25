@@ -14,4 +14,28 @@
 
     Your Query is:
     {{message}}
+
+    <br/><br/>
+    <button type="button" ng-click="submitQuery()" ng-disabled="buttonDisabled()"><b>SUBMIT</b></button>
+
+    <div ng-show="showResultTable">
+        <table>
+            <tr>
+                <th>Company ID</th>
+                <th>Company Name</th>
+                <th>EPS</th>
+                <th>Face Value</th>
+                <th>Market Cap</th>
+                <th>Price</th>
+            </tr>
+            <tr ng-repeat="companyDetail in companyDetails">
+                <td>{{companyDetail.companyId}}</td>
+                <td>{{companyDetail.companyName}}</td>
+                <td>{{companyDetail.eps}}</td>
+                <td>{{companyDetail.faceValue}}</td>
+                <td>{{companyDetail.marketCap}}</td>
+                <td>{{companyDetail.price}}</td>
+            </tr>
+        </table>
+    </div>
 </div>

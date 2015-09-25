@@ -10,7 +10,15 @@ angular.module('com.shareForcast.services')
             });
         };
 
+        var submitQuery = function(query) {
+          return $http({
+              method: 'GET',
+              url: "http://localhost:8080/query?query=" + query
+          });
+        };
+
         return {
-            keyWords : keyWords
+            keyWords : keyWords,
+            submitQuery: submitQuery
         }
     }]);
