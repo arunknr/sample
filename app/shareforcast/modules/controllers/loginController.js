@@ -11,9 +11,9 @@ angular.module('com.shareForcast.controllers')
 
             loginService.login(id, password).success(function(result){
                 if(result.loggedIn)
-                    $scope.title = "successfully logged in";
+                    $scope.title = "Successfully logged in.";
                 else
-                    $scope.title = "wrong username password combination";
+                    $scope.title = "Wrong username / password combination";
             });
         }
     }]);

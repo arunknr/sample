@@ -24,6 +24,12 @@ angular.module('shareForcast')
                     }
                 }
             })
+            .when('/about', {
+                            templateUrl: 'modules/views/about.html',
+            })
+            .when('/contact', {
+                            templateUrl: 'modules/views/contact.html',
+            })
             .otherwise({
                 redirectTo: '/login'
             });
