@@ -49,9 +49,9 @@
 							<th>Market Cap</th>
 							<th>Price</th>
 						</tr>
-					</head>
+					</thead>
 					<tbody>
-						<tr ng-repeat="companyDetail in companyDetails">
+						<tr ng-repeat="companyDetail in companyDetails" ng-click="showCompanyDetails()">
 							<td>{{companyDetail.companyId}}</td>
 							<td>{{companyDetail.companyName}}</td>
 							<td>{{companyDetail.eps}}</td>

@@ -25,10 +25,13 @@ angular.module('shareForcast')
                 }
             })
             .when('/about', {
-                            templateUrl: 'modules/views/about.html',
+                            templateUrl: 'modules/views/about.html'
             })
             .when('/contact', {
-                            templateUrl: 'modules/views/contact.html',
+                            templateUrl: 'modules/views/contact.html'
+            })
+            .when('/companyDetails', {
+                templateUrl: 'modules/views/companyDetails.html'
             })
             .otherwise({
                 redirectTo: '/login'

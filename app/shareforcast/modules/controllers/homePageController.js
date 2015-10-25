@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('com.shareForcast.controllers')
-    .controller('HomePageController', ['$scope', '$rootScope', 'HomePageService',
-        function ($scope, $rootScope, homePageService) {
+    .controller('HomePageController', ['$scope', '$rootScope', '$location','HomePageService',
+        function ($scope, $rootScope, $location, homePageService) {
             $scope.members = $rootScope.keywords;
             $scope.showResultTable = false;
 
@@ -16,5 +16,9 @@ angular.module('com.shareForcast.controllers')
             $scope.buttonDisabled = function() {
                 return $scope.message == undefined || $scope.message == "";
             };
+
+            $scope.showCompanyDetails = function() {
+                $location.url("/companyDetails");
+            }
         }
     ]);
