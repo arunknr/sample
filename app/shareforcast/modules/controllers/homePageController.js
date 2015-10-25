@@ -17,8 +17,8 @@ angular.module('com.shareForcast.controllers')
                 return $scope.message == undefined || $scope.message == "";
             };
 
-            $scope.showCompanyDetails = function() {
-                $location.url("/companyDetails");
+            $scope.showCompanyDetails = function(companyId) {
+                $location.path("/companyDetails").search({companyId: companyId});
             }
         }
     ]);

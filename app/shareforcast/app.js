@@ -31,7 +31,8 @@ angular.module('shareForcast')
                             templateUrl: 'modules/views/contact.html'
             })
             .when('/companyDetails', {
-                templateUrl: 'modules/views/companyDetails.html'
+                templateUrl: 'modules/views/companyDetails.html',
+                controller: 'CompanyDetails'
             })
             .otherwise({
                 redirectTo: '/login'
