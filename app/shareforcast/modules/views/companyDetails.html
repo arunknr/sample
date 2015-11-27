@@ -1,34 +1,13 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Stock Overhaul - Screener</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <body>
+        <div class="container theme-showcase" role="main">
+            <div class="jumbotron">
+                <h1>Company Information</h1>
+            </div>
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+            <div>{{companyName}}</div>
+            <br/><br/>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="/app/components/jquery/jquery.min.js"></script>
-
-</head>
-<body>
-<div ng-include src="'/app/shareforcast/modules/views/header.html'"></div>
-<div class="container theme-showcase" role="main">
-    <div class="jumbotron">
-        <h1>Company Information</h1>
-    </div>
-
-    <div>{{companyName}}</div>
-    <br/><br/>
-
-</div>
-<div ng-include src="'/app/shareforcast/modules/views/footer.html'"></div>
-</body>
+        </div>
+    </body>
 </html>
