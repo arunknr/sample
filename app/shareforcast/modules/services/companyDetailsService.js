@@ -10,7 +10,15 @@ angular.module('com.shareForcast.services')
             });
         };
 
+        var submitCompany = function(companyId) {
+          return $http({
+              method: 'GET',
+              url: "http://localhost:8080/companyBalanceSheet?companyId=" + companyId
+          });
+        };
+
         return {
-            details: details
+            details: details,
+            submitCompany: submitCompany
         }
     }]);

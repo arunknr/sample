@@ -4,10 +4,31 @@
             <div class="jumbotron">
                 <h1>Company Information</h1>
             </div>
-
             <div>{{companyName}}</div>
+            <div>{{companyId}}</div>
+            <div>{{bseId}}</div>
+            <div>{{nseId}}</div>
+            <div>{{groupName}}</div>
+            <div>{{marketCap}}</div>
             <br/><br/>
-
+            <button class="btn btn-primary" type="button" ng-click="submitCompany()"><b>Balance Sheet</b></button>
+            <div ng-show="showResultTable" class="table-responsive">
+                <table class="table table-hover">
+                    <caption>Financials</caption>
+                    <thead>
+                    <tr class="active">
+                        <th>Name</th>
+                        <th>Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="companyFinancial in companyFinancials">
+                        <td>{{companyFinancial.id.balancesheet_id.name}}</td>
+                        <td>{{companyFinancial.value}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>
