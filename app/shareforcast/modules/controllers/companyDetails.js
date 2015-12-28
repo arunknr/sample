@@ -6,8 +6,22 @@ angular.module('com.shareForcast.controllers')
 
             $scope.showResultTable = false;
 
-            $scope.submitCompany = function() {
-                companyDetailsService.submitCompany($scope.companyId).success(function (resultFinancial) {
+            $scope.submitBalanceSheet = function() {
+                companyDetailsService.submitBalanceSheet($scope.companyId).success(function (resultFinancial) {
+                    $scope.showResultTable = true;
+                    $scope.companyFinancials = resultFinancial;
+                })
+            };
+
+            $scope.submitProfitLoss = function() {
+                companyDetailsService.submitProfitLoss($scope.companyId).success(function (resultFinancial) {
+                    $scope.showResultTable = true;
+                    $scope.companyFinancials = resultFinancial;
+                })
+            };
+
+            $scope.submitCashFlow = function() {
+                companyDetailsService.submitCashFlow($scope.companyId).success(function (resultFinancial) {
                     $scope.showResultTable = true;
                     $scope.companyFinancials = resultFinancial;
                 })

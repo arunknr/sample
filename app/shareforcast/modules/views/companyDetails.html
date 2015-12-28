@@ -4,31 +4,45 @@
             <div class="jumbotron">
                 <h1>Company Information</h1>
             </div>
-            <div>{{companyName}}</div>
-            <div>{{companyId}}</div>
-            <div>{{bseId}}</div>
-            <div>{{nseId}}</div>
-            <div>{{groupName}}</div>
-            <div>{{marketCap}}</div>
-            <br/><br/>
-            <button class="btn btn-primary" type="button" ng-click="submitCompany()"><b>Balance Sheet</b></button>
-            <div ng-show="showResultTable" class="table-responsive">
-                <table class="table table-hover">
-                    <caption>Financials</caption>
-                    <thead>
-                    <tr class="active">
-                        <th>Name</th>
-                        <th>Value</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="companyFinancial in companyFinancials">
-                        <td>{{companyFinancial.id.balancesheet_id.name}}</td>
-                        <td>{{companyFinancial.value}}</td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="lead">{{companyName}}</div>
+                    <div>{{companyId}}</div>
+                    <div>{{bseId}}</div>
+                    <div>{{nseId}}</div>
+                    <div>{{groupName}}</div>
+                    <div>{{marketCap}}</div>
+                    <br/><br/>
+                    <div class="well well-sm" data-toggle="collapse" data-target="#financials">Financials</div>
+                    <div id="financials" class="collapse">
+                        These tables show financial data from the Company's quarterly and annual reports.</br>
+                        <div class="btn-group btn-group-xs" role="group" aria-label="financialButtons">
+                            <button type="button" class="btn btn-primary" ng-click="submitBalanceSheet()">Balance Sheet</button>
+                            <button type="button" class="btn btn-primary" ng-click="submitProfitLoss()">Profit & Loss</button>
+                            <button type="button" class="btn btn-primary" ng-click="submitCashFlow()">Cash Flow</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+
+                    <div ng-show="showResultTable" class="table-responsive">
+                        <table class="table table-hover">
+                            <caption>Balance Sheet</caption>
+                            <thead>
+                            <tr class="active">
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="companyFinancial in companyFinancials">
+                                <td>{{companyFinancial.id.id.name}}</td>
+                                <td>{{companyFinancial.value}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-    </body>
-</html>
+    </body

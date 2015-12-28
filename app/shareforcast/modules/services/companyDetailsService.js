@@ -10,15 +10,31 @@ angular.module('com.shareForcast.services')
             });
         };
 
-        var submitCompany = function(companyId) {
+        var submitBalanceSheet = function(companyId) {
           return $http({
               method: 'GET',
               url: "http://localhost:8080/companyBalanceSheet?companyId=" + companyId
           });
         };
 
+        var submitProfitLoss = function(companyId) {
+          return $http({
+              method: 'GET',
+              url: "http://localhost:8080/companyProfitLoss?companyId=" + companyId
+          });
+        };
+
+        var submitCashFlow = function(companyId) {
+          return $http({
+              method: 'GET',
+              url: "http://localhost:8080/companyCashFlow?companyId=" + companyId
+          });
+        };
+
         return {
             details: details,
-            submitCompany: submitCompany
+            submitBalanceSheet: submitBalanceSheet,
+            submitProfitLoss : submitProfitLoss,
+            submitCashFlow : submitCashFlow
         }
     }]);
