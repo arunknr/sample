@@ -32,7 +32,7 @@ angular.module('com.shareForcast.controllers')
                 $scope.companyId = result.companyId;
                 $scope.bseId = result.bseId;
                 $scope.nseId = result.nseId;
-                $scope.groupName = result.groupName;
+                $scope.industry = result.industry;
                 $scope.marketCap = result.marketCap;
             })
 

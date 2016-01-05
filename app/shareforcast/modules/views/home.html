@@ -26,20 +26,14 @@
 						<tr class="active">
 							<th>Company ID</th>
 							<th>Company Name</th>
-							<th>EPS</th>
-							<th>Face Value</th>
-							<th>Market Cap</th>
-							<th>Price</th>
+							<th>Ratio</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="companyDetail in companyDetails" ng-click="showCompanyDetails(companyDetail.CompanyId)">
 							<td>{{companyDetail.CompanyId}}</td>
 							<td>{{companyDetail.CompanyName}}</td>
-							<td>{{companyDetail.RatioId}}</td>
-							<td>{{companyDetail.RatioValue}}</td>
-							<td>{{companyDetail.marketCap}}</td>
-							<td>{{companyDetail.price}}</td>
+							<td>{{companyDetail.RatioId}} = {{companyDetail.RatioValue}}</td>
 						</tr>
 					</tbody>
 				</table>

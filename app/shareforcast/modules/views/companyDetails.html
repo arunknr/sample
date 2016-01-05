@@ -7,11 +7,11 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="lead">{{companyName}}</div>
-                    <div>{{companyId}}</div>
-                    <div>{{bseId}}</div>
-                    <div>{{nseId}}</div>
-                    <div>{{groupName}}</div>
-                    <div>{{marketCap}}</div>
+                    <div><strong>Shian Id</strong> {{companyId}}</div>
+                    <div><strong>BSE</strong> {{bseId}}</div>
+                    <div><strong>NSE</strong> {{nseId}}</div>
+                    <div><strong>Industry</strong> {{industry}}</div>
+                    <div><strong>Cap</strong> {{marketCap}}</div>
                     <br/><br/>
                     <div class="well well-sm" data-toggle="collapse" data-target="#financials">Financials</div>
                     <div id="financials" class="collapse">
@@ -23,21 +23,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-6">
 
                     <div ng-show="showResultTable" class="table-responsive">
                         <table class="table table-hover">
-                            <caption>Balance Sheet</caption>
+                            <caption>Financials ending Mar 2015</caption>
                             <thead>
                             <tr class="active">
                                 <th>Name</th>
                                 <th>Value</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="small">
                             <tr ng-repeat="companyFinancial in companyFinancials">
                                 <td>{{companyFinancial.id.id.name}}</td>
-                                <td>{{companyFinancial.value}}</td>
+                                <td class="text-right">{{companyFinancial.value}}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -45,4 +45,5 @@
                 </div>
             </div>
         </div>
-    </body
+    </body>
+</html>
