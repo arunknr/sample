@@ -23,17 +23,27 @@
 				<table class="table table-hover">
 					<caption>Query Results</caption>
 					<thead>
-						<tr class="active">
+						<tr class="active" ng-repeat="companyDetail in companyDetails | limitTo: 1">
 							<th>Company ID</th>
 							<th>Company Name</th>
-							<th>Ratio</th>
+							<th>{{companyDetail.RatioId1}}</th>
+							<th>{{companyDetail.RatioId2}}</th>
+							<th>{{companyDetail.RatioId3}}</th>
+							<th>{{companyDetail.RatioId4}}</th>
+							<th>{{companyDetail.RatioId5}}</th>
+							<th>{{companyDetail.RatioId6}}</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="companyDetail in companyDetails" ng-click="showCompanyDetails(companyDetail.CompanyId)">
 							<td>{{companyDetail.CompanyId}}</td>
 							<td>{{companyDetail.CompanyName}}</td>
-							<td>{{companyDetail.RatioId}} = {{companyDetail.RatioValue}}</td>
+							<td>{{companyDetail.RatioValue1}}</td>
+							<td>{{companyDetail.RatioValue2}}</td>
+							<td>{{companyDetail.RatioValue3}}</td>
+							<td>{{companyDetail.RatioValue4}}</td>
+							<td>{{companyDetail.RatioValue5}}</td>
+							<td>{{companyDetail.RatioValue6}}</td>
 						</tr>
 					</tbody>
 				</table>
