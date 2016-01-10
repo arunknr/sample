@@ -8,6 +8,10 @@ angular.module('shareForcast')
                 templateUrl: 'modules/views/login.html',
                 controller: 'LoginController'
             })
+            .when('/register', {
+                templateUrl: 'modules/views/register.html',
+                controller: 'RegisterController'
+            })
             .when('/home', {
                 templateUrl: 'modules/views/home.html',
                 controller: 'HomePageController',

@@ -6,25 +6,26 @@ angular.module('com.shareForcast.controllers')
 
             $scope.showResultTable = false;
 
-            $scope.submitBalanceSheet = function() {
-                companyDetailsService.submitBalanceSheet($scope.companyId).success(function (resultFinancial) {
-                    $scope.showResultTable = true;
-                    $scope.companyFinancials = resultFinancial;
-                })
-            };
-
-            $scope.submitProfitLoss = function() {
-                companyDetailsService.submitProfitLoss($scope.companyId).success(function (resultFinancial) {
-                    $scope.showResultTable = true;
-                    $scope.companyFinancials = resultFinancial;
-                })
-            };
-
-            $scope.submitCashFlow = function() {
-                companyDetailsService.submitCashFlow($scope.companyId).success(function (resultFinancial) {
-                    $scope.showResultTable = true;
-                    $scope.companyFinancials = resultFinancial;
-                })
+            $scope.submitFinancial = function(reportPeriod, financial) {
+                if (!financial.localeCompare("BalanceSheet")) {
+                    companyDetailsService.submitBalanceSheet($scope.companyId, reportPeriod).success(function (resultFinancial) {
+                        $scope.showResultTable = true;
+                        $scope.companyFinancials = resultFinancial;
+                        $scope.financial = "BalanceSheet";
+                    })
+                } else if (!financial.localeCompare("ProfitLoss")) {
+                    companyDetailsService.submitProfitLoss($scope.companyId, reportPeriod).success(function (resultFinancial) {
+                        $scope.showResultTable = true;
+                        $scope.companyFinancials = resultFinancial;
+                        $scope.financial = "ProfitLoss";
+                    })
+                } else if (!financial.localeCompare("CashFlow")) {
+                    companyDetailsService.submitCashFlow($scope.companyId, reportPeriod).success(function (resultFinancial) {
+                        $scope.showResultTable = true;
+                        $scope.companyFinancials = resultFinancial;
+                        $scope.financial = "CashFlow";
+                    })
+                }
             };
 
             companyDetailsService.details($routeParams.companyId).success(function(result){
@@ -35,5 +36,4 @@ angular.module('com.shareForcast.controllers')
                 $scope.industry = result.industry;
                 $scope.marketCap = result.marketCap;
             })
-
         }]);

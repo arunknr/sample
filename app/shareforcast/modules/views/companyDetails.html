@@ -7,37 +7,49 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="lead">{{companyName}}</div>
-                    <div><strong>Shian Id</strong> {{companyId}}</div>
-                    <div><strong>BSE</strong> {{bseId}}</div>
-                    <div><strong>NSE</strong> {{nseId}}</div>
-                    <div><strong>Industry</strong> {{industry}}</div>
+                    <div><strong>Company Id</strong> {{companyId}}</div>
+                    <div><strong>BSE Ticker</strong> {{bseId}}</div>
+                    <div><strong>NSE Ticker</strong> {{nseId}}</div>
+                    <div><strong>Sector</strong> {{industry}}</div>
                     <div><strong>Cap</strong> {{marketCap}}</div>
                     <br/><br/>
-                    <div class="well well-sm" data-toggle="collapse" data-target="#financials">Financials</div>
+                    <div class="well well-sm" data-toggle="collapse" data-target="#financials">Financial Statements</div>
                     <div id="financials" class="collapse">
                         These tables show financial data from the Company's quarterly and annual reports.</br>
                         <div class="btn-group btn-group-xs" role="group" aria-label="financialButtons">
-                            <button type="button" class="btn btn-primary" ng-click="submitBalanceSheet()">Balance Sheet</button>
-                            <button type="button" class="btn btn-primary" ng-click="submitProfitLoss()">Profit & Loss</button>
-                            <button type="button" class="btn btn-primary" ng-click="submitCashFlow()">Cash Flow</button>
+                            <button type="button" class="btn btn-primary" ng-click="submitFinancial(201503, 'BalanceSheet')">Balance Sheet</button>
+                            <button type="button" class="btn btn-primary" ng-click="submitFinancial(201503, 'ProfitLoss')">Profit & Loss</button>
+                            <button type="button" class="btn btn-primary" ng-click="submitFinancial(201503, 'CashFlow')">Cash Flow</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-9">
 
                     <div ng-show="showResultTable" class="table-responsive">
                         <table class="table table-hover">
-                            <caption>Financials ending Mar 2015</caption>
+                            <caption>Financial Statement - {{financial}}</caption>
                             <thead>
-                            <tr class="active">
+                            <tr class="active" ng-repeat="companyFinancial in companyFinancials | limitTo: 1">
+                                <th><a href="" ng-click="submitFinancial(companyFinancial.4.id.reportPeriod+400, financial)"><span class="glyphicon glyphicon-hand-left"></span></a></th>
                                 <th>Name</th>
-                                <th>Value</th>
+                                <th class="text-right">{{companyFinancial.4.id.reportPeriod}}</th>
+                                <th class="text-right">{{companyFinancial.3.id.reportPeriod}}</th>
+                                <th class="text-right">{{companyFinancial.2.id.reportPeriod}}</th>
+                                <th class="text-right">{{companyFinancial.1.id.reportPeriod}}</th>
+                                <th class="text-right">{{companyFinancial.0.id.reportPeriod}}</th>
+                                <th><a href="" ng-click="submitFinancial(companyFinancial.0.id.reportPeriod, financial)"><span class="glyphicon glyphicon-hand-right"></span></a></th>
                             </tr>
                             </thead>
                             <tbody class="small">
                             <tr ng-repeat="companyFinancial in companyFinancials">
-                                <td>{{companyFinancial.id.id.name}}</td>
-                                <td class="text-right">{{companyFinancial.value}}</td>
+                                <td></td>
+                                <td>{{companyFinancial.0.id.id.name}}</td>
+                                <td class="text-right">{{companyFinancial.4.value}}</td>
+                                <td class="text-right">{{companyFinancial.3.value}}</td>
+                                <td class="text-right">{{companyFinancial.2.value}}</td>
+                                <td class="text-right">{{companyFinancial.1.value}}</td>
+                                <td class="text-right">{{companyFinancial.0.value}}</td>
+                                <td></td>
                             </tr>
                             </tbody>
                         </table>

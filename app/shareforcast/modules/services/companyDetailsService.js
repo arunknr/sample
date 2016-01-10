@@ -10,24 +10,24 @@ angular.module('com.shareForcast.services')
             });
         };
 
-        var submitBalanceSheet = function(companyId) {
+        var submitBalanceSheet = function(companyId, reportPeriod) {
           return $http({
               method: 'GET',
-              url: "http://localhost:8080/companyBalanceSheet?companyId=" + companyId
+              url: "http://localhost:8080/companyBalanceSheet?companyId=" + companyId + "&reportPeriod=" + reportPeriod
           });
         };
 
-        var submitProfitLoss = function(companyId) {
+        var submitProfitLoss = function(companyId, reportPeriod) {
           return $http({
               method: 'GET',
-              url: "http://localhost:8080/companyProfitLoss?companyId=" + companyId
+              url: "http://localhost:8080/companyProfitLoss?companyId=" + companyId + "&reportPeriod=" + reportPeriod
           });
         };
 
-        var submitCashFlow = function(companyId) {
+        var submitCashFlow = function(companyId, reportPeriod) {
           return $http({
               method: 'GET',
-              url: "http://localhost:8080/companyCashFlow?companyId=" + companyId
+              url: "http://localhost:8080/companyCashFlow?companyId=" + companyId + "&reportPeriod=" + reportPeriod
           });
         };
 
