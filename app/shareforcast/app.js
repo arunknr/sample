@@ -39,7 +39,8 @@ angular.module('shareForcast')
                 controller: 'CompanyDetails'
             })
             .otherwise({
-                redirectTo: '/login'
+                //redirectTo: '/login'
+                templateUrl: 'modules/views/d3test.html'
             });
 
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
