@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('com.shareForcast.directives')
-	.directive('autocomplete', ['SearchCompanyService', function (SearchCompanyService) {
+	.directive('autocomplete', ['$location','SearchCompanyService', function ($location, searchCompanyService) {
                              return {
                                  restrict: "A",
                                  link: function (scope, element, attr, ctrl) {
 
                                      element.autocomplete({
                                          source: function (searchTerm, response) {
-                                             SearchCompanyService.companyinfo().success(function (result)  {
+                                             searchCompanyService.companyinfo().success(function (result)  {
 
                                                 var x = result.companyList.map(function (company) {
                                                           return (company.companyName+" - "+company.companyId);
@@ -26,10 +26,12 @@ angular.module('com.shareForcast.directives')
                                          },
                                          minLength: 3,
                                          select: function (event, selectedItem) {
-                                             // Do something with the selected item, e.g.
-                                             scope.yourObject= selectedItem.item.value;
-                                             scope.$apply();
-                                             //event.preventDefault();
+                                            var selectedCompany = selectedItem.item.value;
+                                            var companyId = selectedCompany.substring(selectedCompany.length-6,selectedCompany.length);
+                                             scope.$apply(function() {
+                                                 $location.path("/companyDetails").search({companyId: companyId});
+                                             });
+                                             selectedItem.item.value = "";
                                          }
                                      });
                                  }
